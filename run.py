@@ -1,5 +1,5 @@
 #Importar
-from flask import Flask
+from flask import Flask , render_template
 
 #Crear app medante instancia
 app = Flask(__name__)
@@ -7,15 +7,18 @@ app = Flask(__name__)
 #Crear rutas
 @app.route('/', methods=['GET'])  #Indicamos metodo GET
 def holamundo():
-    return 'Hola Mundo!'
+    return render_template('index.html')
 
 
 @app.route('/sobremi', methods=['GET'])
 def sobremi():
-    return 'Aquí se mostrarán mis proyectos'
+    return render_template('sobremi.html')
 
 
-
+#CONTACTO
+@app.route('/contacto', methods=['GET'])
+def contacto():
+    return render_template('/contacto.html')
 
 
 
